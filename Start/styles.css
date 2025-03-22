@@ -1,0 +1,280 @@
+/* ===== Importation ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+/* ===== Réglages globaux ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: radial-gradient(circle at 30% 30%, rgba(50, 50, 50, 0.4), transparent 50%),
+  radial-gradient(circle at 70% 70%, rgba(100, 100, 100, 0.3), transparent 50%),
+  linear-gradient(45deg, #0d0d0d, #1a1a1a, #262626, #1a1a1a, #0d0d0d);
+  background-size: cover;
+  color: #fff;
+  font-family: 'Inter';
+}
+
+/* ===== Suppléments fade, ... ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animated-element {
+  opacity: 0;
+  animation: fadeIn 1.5s ease-out forwards;
+}
+
+.animated-container:nth-child(1) { animation-delay: 3s; }
+.animated-container:nth-child(2) { animation-delay: 3.6s; }
+.animated-container:nth-child(3) { animation-delay: 4.2s; }
+.animated-container:nth-child(4) { animation-delay: 4.8s; }
+
+/* ===== Texte animé ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animated-text span {
+  display: inline-block;
+  opacity: 0;
+  animation: fadeInUp 0.3s ease-out forwards;
+  white-space: nowrap;
+}
+
+.animated-text span {
+  animation-delay: calc(0.2s * var(--index));
+}
+
+/* ===== Header ===== */
+header {
+  width: 100%;
+  overflow: hidden;
+}
+header svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===== Titre principal ===== */
+#startText {
+  font-size: 7.5rem; 
+  margin: 30px 5% 20px 10%;
+  text-align: left;
+}
+
+/* ===== Ligne de séparation ===== */
+hr {
+  border: 1px solid #fff;
+  margin: 20px 5%;
+}
+
+/* ===== Titres secondaires ===== */
+h2 {
+  font-size: 3.125rem;
+  margin: 20px 5%;
+  text-align: left;
+  border-left: 5px solid #fff;
+  padding-left: 10px;
+  margin-bottom: 40px;
+}
+
+/* ===== Conteneurs asymétriques ===== */
+.container {
+  background: #191919;
+  margin: 20px 5% 50px 10%;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 10px 10px 20px #191919, -10px -10px 20px #191919;
+}
+
+/* ===== Services ===== */
+#servicesMenu {
+  list-style: none;
+  padding-left: 0;
+}
+#servicesMenu li {
+  margin-bottom: 20px;
+  padding: 10px;
+  border-left: 3px solid #fff;
+}
+.tittleName {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.text {
+  font-size: 1rem;
+  padding-left: 15px;
+}
+
+/* ===== Liste de fin (liens & copyright) ===== */
+#endList {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 20px 0;
+  padding: 0;
+}
+#endList li {
+  margin: 10px 0;
+}
+
+/* ===== Boutons ===== */
+button {
+  --button_radius: 0.75em;
+  --button_color: #ffffff5b;
+  --button_outline_color: #000;
+  background: var(--button_outline_color);
+  border: none;
+  border-radius: var(--button_radius);
+  cursor: pointer;
+}
+.button_top {
+  display: inline-block;
+  border: 2px solid var(--button_outline_color);
+  border-radius: var(--button_radius);
+  padding: 0.75em 1.5em;
+  background: var(--button_color);
+  color: var(--button_outline_color);
+  transition: transform 0.1s ease;
+}
+.button_top a {
+  color: var(--button_outline_color);
+  text-decoration: none;
+}
+button:hover .button_top {
+  transform: translateY(-0.33em);
+}
+
+/* ===== Conteneur des boutons flottants ===== */
+.floating-buttons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000; /* Pour s'assurer que les boutons sont au-dessus des autres éléments */
+}
+
+/* ===== Style des boutons flottants ===== */
+.floating-buttons button {
+  --button_radius: 0.75em;
+  --button_color: #ffffff5b;
+  --button_outline_color: #000;
+  background: var(--button_outline_color);
+  border: none;
+  border-radius: var(--button_radius);
+  cursor: pointer;
+  width: 100px; /* Largeur des boutons */
+}
+
+.floating-buttons .button_top {
+  display: inline-block;
+  border: 2px solid var(--button_outline_color);
+  border-radius: var(--button_radius);
+  padding: 0.75em 1.5em;
+  background: var(--button_color);
+  color: var(--button_outline_color);
+  transition: transform 0.1s ease;
+  width: 100%;
+}
+
+.floating-buttons button:hover .button_top {
+  transform: translateY(-0.33em);
+}
+
+.svgIcon {
+  width: 12px;
+}
+
+/* ===== Media Queries ===== */
+/* Tablettes (max-width: 1024px) */
+@media only screen and (max-width: 1024px) {
+  #startText {
+    font-size: 6rem;
+    margin: 20px 5% 20px 7%;
+  }
+  h2 {
+    font-size: 2.5rem;
+    margin: 15px 5%;
+    margin-bottom: 25px;
+  }
+  .container {
+    margin: 20px 5% 30px 7%;
+    padding: 15px;
+  }
+  .tittleName {
+    font-size: 1.125rem;
+  }
+  .text {
+    font-size: 0.9375rem;
+  }
+}
+
+/* Mobiles (max-width: 768px) */
+@media only screen and (max-width: 768px) {
+  #startText {
+    font-size: 4rem;
+    margin: 15px 5%;
+  }
+  h2 {
+    font-size: 2rem;
+    margin: 10px 5%;
+    margin-bottom: 20px;
+  }
+  .container {
+    margin: 15px 5%;
+    padding: 10px;
+  }
+  #endList {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  button {
+    font-size: 0.875rem;
+  }
+}
+
+/* Très petits écrans (max-width: 480px) */
+@media only screen and (max-width: 480px) {
+  #startText {
+    font-size: 3rem;
+  }
+  h2 {
+    font-size: 1.75rem;
+  }
+  .container {
+    margin: 10px 5%;
+    padding: 8px;
+  }
+  .tittleName {
+    font-size: 0.9rem;
+  }
+  .text {
+    font-size: 0.8rem;
+  }
+  button {
+    font-size: 0.8rem;
+  }
+}
